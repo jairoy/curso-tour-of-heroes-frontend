@@ -1,3 +1,4 @@
-.heroes {
-    cursor: pointer;
+.mat-mdc-row:hover {
+    cursor:pointer;
+    background-color:whitesmoke;
 }   

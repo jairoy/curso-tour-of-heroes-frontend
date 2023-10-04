@@ -5,13 +5,14 @@ import { HeroDetailComponent } from './components/heroe-detail/hero-detail.compo
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
 import { HeroesRoutingModule } from './components/heroes/heroes-routing.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 
 @NgModule({
   declarations: [HeroesComponent, HeroDetailComponent],
   imports: [
-    CommonModule, FormsModule, MaterialModule,HeroesRoutingModule
+    CommonModule, FormsModule, FlexLayoutModule, MaterialModule,HeroesRoutingModule
   ]
 })
 export class HeroesModule { }

@@ -1,3 +1,9 @@
+.add-button{
+    position: absolute;
+    right: 20px;
+    top: 100px;
+
+}
 .mat-mdc-row:hover {
     cursor:pointer;
     background-color:whitesmoke;

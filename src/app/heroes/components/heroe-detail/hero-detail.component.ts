@@ -15,14 +15,25 @@ export class HeroDetailComponent implements OnInit{
                 private route: ActivatedRoute){}
 
     hero!: Hero;
+    isEditing!: boolean;
 
     ngOnInit(): void {
         this.getHero();
     }
 
     getHero(): void{
-        const id = Number(this.route.snapshot.paramMap.get('id'));        
-        this.heroService.getOne(id).subscribe((hero) => (this.hero = hero));
+        const paramId = this.route.snapshot.paramMap.get('id');
+        
+        if (paramId === 'new') {
+            this.isEditing = false;
+            this.hero = {name: ''} as Hero;
+
+        }else{
+            const id = Number(paramId);
+            this.isEditing =  true;
+            this.heroService.getOne(id).subscribe((hero) => (this.hero = hero));
+        }
+        
     }
     
     goBack(): void{
@@ -34,7 +45,11 @@ export class HeroDetailComponent implements OnInit{
 
     }
 
-    save(): void{
+    create(): void{
+        this.heroService.create(this.hero).subscribe(() => this.goBack());
+    }
+
+    update(): void{
         this.heroService.update(this.hero).subscribe(() => this.goBack());
     }
 }

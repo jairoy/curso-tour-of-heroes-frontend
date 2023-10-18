@@ -47,8 +47,6 @@ const MODULES = [
       useClass: TokenInterceptor,
       multi: true
     }
-
-
   ]
 })
 
